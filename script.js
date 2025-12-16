@@ -145,7 +145,7 @@
         const href = this.getAttribute('href');
         if (!href || href === '#' || href === '#!') return;
 
-        const targetId = href.replace(/^/?(.*)/, '$1');
+        const targetId = href.replace(/^\#?(.*)/, '$1');
         if (targetId.startsWith('#')) {
           const target = document.querySelector(targetId);
           if (target) {
@@ -519,15 +519,15 @@
 
     const validators = {
       name: {
-        pattern: /^[a-zA-ZÀ-ÿs-']{2,50}$/,
+        pattern: /^[a-zA-ZÀ-ÿ\s-']{2,50}$/,
         message: 'Bitte geben Sie einen gültigen Namen ein (2-50 Zeichen, nur Buchstaben).'
       },
       email: {
-        pattern: /^[^s@]+@[^s@]+.[^s@]+$/,
+        pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
         message: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.'
       },
       phone: {
-        pattern: /^[ds+-()]{10,20}$/,
+        pattern: /^[\d\s+\-()]{10,20}$/,
         message: 'Bitte geben Sie eine gültige Telefonnummer ein (10-20 Zeichen).'
       },
       message: {
@@ -758,177 +758,3 @@
     app.init();
   }
 })();
-.c-nav__list {
-  height: calc(100vh - var(--header-h-mobile));
-}
-
-@media (min-width: 1024px) {
-  .c-nav__list {
-    height: auto;
-  }
-}
-
-.c-card,
-.c-service-card,
-.c-pricing-card,
-.c-timeline__item,
-.c-stat,
-.c-feature-list__item,
-.c-content-block,
-.c-hero__content,
-.l-section__header {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.c-button,
-.c-card__link,
-.c-service-card__link {
-  position: relative;
-  overflow: hidden;
-}
-
-.c-header {
-  transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
-}
-
-.c-nav__toggle {
-  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.c-nav__toggle-icon,
-.c-nav__toggle-icon::before,
-.c-nav__toggle-icon::after {
-  transition: all 0.3s ease-in-out;
-}
-
-.c-nav__list {
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.c-nav__link::before {
-  transition: width 0.3s ease-in-out;
-}
-
-.c-button:hover,
-.c-button:focus-visible {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.c-card:hover,
-.c-service-card:hover,
-.c-pricing-card:hover {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.c-card__img {
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.c-card__icon-wrapper,
-.c-service-card__icon-wrapper {
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.c-feature-list__item:hover {
-  transition: all 0.3s ease-in-out;
-}
-
-.c-timeline__content {
-  transition: all 0.3s ease-in-out;
-}
-
-.c-logo:hover {
-  transition: all 0.3s ease-in-out;
-}
-
-@keyframes ripple-animation {
-  to {
-    transform: scale(2);
-    opacity: 0;
-  }
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideOutRight {
-  from {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  to {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.c-modal.is-open {
-  animation: fadeIn 0.3s ease-out;
-}
-
-.c-modal__overlay {
-  animation: fadeIn 0.3s ease-out;
-}
-
-.c-modal__content {
-  animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.c-scroll-top {
-  transition: all 0.3s ease-in-out;
-}
-
-.c-form__input:focus,
-.c-form__textarea:focus,
-.c-form__select:focus {
-  transition: all 0.25s ease-in-out;
-}
-
-.c-contact-info__item:hover,
-.c-culture__item:hover {
-  transition: all 0.3s ease-in-out;
-}
-
-a,
-.c-nav__link,
-.c-card__link,
-.c-service-card__link,
-.c-contact-info__link {
-  transition: color 0.25s ease-in-out, transform 0.25s ease-in-out;
-}
